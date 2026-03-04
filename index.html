@@ -23,6 +23,7 @@
     <div class="gradient-orb orb-a" aria-hidden="true"></div>
     <div class="gradient-orb orb-b" aria-hidden="true"></div>
     <div class="scanline" aria-hidden="true"></div>
+    <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
 
     <header class="topbar">
       <div class="wrap nav-shell">
@@ -47,16 +48,22 @@
         <nav class="desktop-nav" aria-label="Primary">
           <a href="#about">About</a>
           <a href="#strengths">Strengths</a>
+          <a href="#proof">Proof</a>
           <a href="#projects">Projects</a>
+          <a href="#case-studies">Cases</a>
           <a href="#contact">Contact</a>
+          <a class="nav-resume" href="assets/Jephthah-Kwame-Lanor-CV.pdf" download data-track="resume_nav">Resume</a>
         </nav>
       </div>
 
       <nav class="mobile-menu" id="mobile-menu" aria-hidden="true">
         <a href="#about">About</a>
         <a href="#strengths">Strengths</a>
+        <a href="#proof">Proof</a>
         <a href="#projects">Projects</a>
+        <a href="#case-studies">Cases</a>
         <a href="#contact">Contact</a>
+        <a href="assets/Jephthah-Kwame-Lanor-CV.pdf" download data-track="resume_mobile">Resume</a>
       </nav>
     </header>
 
@@ -72,7 +79,8 @@
 
         <div class="cta-row">
           <a class="btn primary magnetic" href="#projects">Explore Work</a>
-          <a class="btn secondary" href="https://github.com/Lanor-Jephthah1" target="_blank" rel="noreferrer">GitHub Profile</a>
+          <a class="btn secondary" href="https://github.com/Lanor-Jephthah1" target="_blank" rel="noreferrer" data-track="github_hero">GitHub Profile</a>
+          <a class="btn tertiary" href="assets/Jephthah-Kwame-Lanor-CV.pdf" download data-track="resume_hero">Download Resume</a>
         </div>
 
         <div class="ticker" aria-label="Core tools and stacks">
@@ -166,6 +174,40 @@
         </div>
       </section>
 
+      <section id="proof" class="section wrap reveal">
+        <div class="section-head">
+          <h2>Proof of Work</h2>
+          <p>Live portfolio indicators pulled from GitHub and click interactions.</p>
+        </div>
+        <div class="proof-grid">
+          <article class="proof-card spotlight-card">
+            <p class="proof-label">Public Repositories</p>
+            <h3 id="badge-repos">16</h3>
+            <a class="proof-link" href="https://github.com/Lanor-Jephthah1?tab=repositories" target="_blank" rel="noreferrer" data-track="proof_repos">View repositories</a>
+          </article>
+          <article class="proof-card spotlight-card">
+            <p class="proof-label">Total Stars</p>
+            <h3 id="badge-stars">0</h3>
+            <p class="proof-note">Across public repositories</p>
+          </article>
+          <article class="proof-card spotlight-card">
+            <p class="proof-label">Primary Language</p>
+            <h3 id="badge-language">Python</h3>
+            <p class="proof-note">Most-used stack indicator</p>
+          </article>
+          <article class="proof-card spotlight-card">
+            <p class="proof-label">Latest Activity</p>
+            <h3 id="badge-updated">Mar 2026</h3>
+            <p class="proof-note">Most recent repository update</p>
+          </article>
+          <article class="proof-card spotlight-card">
+            <p class="proof-label">Tracked Engagements</p>
+            <h3 id="badge-clicks">0</h3>
+            <p class="proof-note">GitHub, LinkedIn, Email, Resume clicks</p>
+          </article>
+        </div>
+      </section>
+
       <section id="projects" class="section wrap reveal">
         <div class="section-head">
           <h2>Selected GitHub Projects</h2>
@@ -177,43 +219,84 @@
             <h3>Echo AI Companion Super</h3>
             <p class="project-meta">Python • Flask • MongoDB • Vercel</p>
             <p>Production-oriented wellness assistant with streaming responses, adaptive sentiment behavior, analytics, and persistent chat history.</p>
-            <a class="project-link" href="https://github.com/Lanor-Jephthah1/Echo-AI-Companion-Super" target="_blank" rel="noreferrer">View Repository</a>
+            <a class="project-link" href="https://github.com/Lanor-Jephthah1/Echo-AI-Companion-Super" target="_blank" rel="noreferrer" data-track="project_echo_super">View Repository</a>
           </article>
 
           <article class="project-card spotlight-card">
             <h3>PetroCare Monitor</h3>
             <p class="project-meta">Python • Flask • Risk Scoring</p>
             <p>Infrastructure monitoring platform for petroleum operations with telemetry-driven alerts, incident workflows, and maintenance tracking.</p>
-            <a class="project-link" href="https://github.com/Lanor-Jephthah1/petrocare-monitor" target="_blank" rel="noreferrer">View Repository</a>
+            <a class="project-link" href="https://github.com/Lanor-Jephthah1/petrocare-monitor" target="_blank" rel="noreferrer" data-track="project_petrocare">View Repository</a>
           </article>
 
           <article class="project-card spotlight-card">
             <h3>Smart File Organizer</h3>
             <p class="project-meta">Python • Automation • Desktop Utility</p>
             <p>Windows automation assistant for organizing file systems, running routine commands, and keeping structured execution logs.</p>
-            <a class="project-link" href="https://github.com/Lanor-Jephthah1/smart-file-organizer" target="_blank" rel="noreferrer">View Repository</a>
+            <a class="project-link" href="https://github.com/Lanor-Jephthah1/smart-file-organizer" target="_blank" rel="noreferrer" data-track="project_smart_file">View Repository</a>
           </article>
 
           <article class="project-card spotlight-card">
             <h3>NHIS Payments Scraper</h3>
             <p class="project-meta">Python • Selenium • Pandas</p>
             <p>Fault-tolerant, resumable scraping pipeline for NHIS payment records with pagination handling and clean CSV export workflows.</p>
-            <a class="project-link" href="https://github.com/Lanor-Jephthah1/nhis-payments-scraper" target="_blank" rel="noreferrer">View Repository</a>
+            <a class="project-link" href="https://github.com/Lanor-Jephthah1/nhis-payments-scraper" target="_blank" rel="noreferrer" data-track="project_nhis">View Repository</a>
           </article>
 
           <article class="project-card spotlight-card">
             <h3>NLP Techniques</h3>
             <p class="project-meta">NLP • Text Processing • Classification</p>
             <p>Hands-on repository covering text preprocessing, tagging, named entity recognition, and applied classification workflows.</p>
-            <a class="project-link" href="https://github.com/Lanor-Jephthah1/NLP-Techniques" target="_blank" rel="noreferrer">View Repository</a>
+            <a class="project-link" href="https://github.com/Lanor-Jephthah1/NLP-Techniques" target="_blank" rel="noreferrer" data-track="project_nlp">View Repository</a>
           </article>
 
           <article class="project-card spotlight-card">
             <h3>Girlhub</h3>
             <p class="project-meta">JavaScript • E-commerce Product</p>
             <p>University-focused e-commerce platform concept showcasing frontend product thinking and transaction flow design.</p>
-            <a class="project-link" href="https://github.com/Lanor-Jephthah1/Girlhub" target="_blank" rel="noreferrer">View Repository</a>
+            <a class="project-link" href="https://github.com/Lanor-Jephthah1/Girlhub" target="_blank" rel="noreferrer" data-track="project_girlhub">View Repository</a>
           </article>
+        </div>
+      </section>
+
+      <section id="case-studies" class="section wrap reveal">
+        <div class="section-head">
+          <h2>Case Studies</h2>
+          <p>How I approach engineering work from problem definition to working output.</p>
+        </div>
+        <div class="case-grid">
+          <article class="case-card spotlight-card">
+            <h3>Echo AI Companion Super</h3>
+            <p><strong>Problem:</strong> Build a dependable conversational assistant with memory, tone control, and production stability.</p>
+            <p><strong>Build:</strong> Flask-based service layer, persistent MongoDB chat history, and adaptive sentiment response behavior.</p>
+            <p><strong>Impact:</strong> Delivered a more realistic product-ready chatbot architecture, not just a demo script.</p>
+          </article>
+          <article class="case-card spotlight-card">
+            <h3>NHIS Payments Scraper</h3>
+            <p><strong>Problem:</strong> Long data collection sessions failed mid-way and caused duplicate or incomplete records.</p>
+            <p><strong>Build:</strong> Resumable Selenium pipeline with checkpoints, pagination handling, and clean structured exports.</p>
+            <p><strong>Impact:</strong> Improved reliability and reduced manual reruns for data retrieval tasks.</p>
+          </article>
+          <article class="case-card spotlight-card">
+            <h3>PetroCare Monitor</h3>
+            <p><strong>Problem:</strong> Operational monitoring required a clearer risk signal and workflow handoff for incidents.</p>
+            <p><strong>Build:</strong> Flask platform with telemetry scoring, incident tracking, inspections, and maintenance records.</p>
+            <p><strong>Impact:</strong> Presented a practical full-stack concept for infrastructure oversight and decision support.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="domain" class="section wrap reveal">
+        <div class="domain-panel spotlight-card">
+          <h2>Custom Domain Ready</h2>
+          <p>
+            The site is structured to move from GitHub Pages to a personal custom domain with HTTPS and DNS verification. Recommended direction: <strong>jephthahlanor.dev</strong>.
+          </p>
+          <div class="domain-steps">
+            <p><span>1</span> Buy preferred domain</p>
+            <p><span>2</span> Add DNS records to GitHub Pages</p>
+            <p><span>3</span> Add `CNAME` file and enforce HTTPS</p>
+          </div>
         </div>
       </section>
 
@@ -224,8 +307,9 @@
             I am actively seeking a National Service role where I can contribute as a dependable software engineer, learn quickly within a high-standard team, and ship work that users actually benefit from.
           </p>
           <div class="cta-row">
-            <a class="btn primary magnetic" href="mailto:mclanorjeff@gmail.com">Email Me</a>
-            <a class="btn secondary" href="https://www.linkedin.com/in/jephthah-kwame-lanor-6b9017262/" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="btn primary magnetic" href="mailto:mclanorjeff@gmail.com" data-track="email_contact">Email Me</a>
+            <a class="btn secondary" href="https://www.linkedin.com/in/jephthah-kwame-lanor-6b9017262/" target="_blank" rel="noreferrer" data-track="linkedin_contact">LinkedIn</a>
+            <a class="btn tertiary" href="assets/Jephthah-Kwame-Lanor-CV.pdf" download data-track="resume_contact">Resume PDF</a>
           </div>
         </div>
       </section>

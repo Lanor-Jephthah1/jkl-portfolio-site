@@ -1,7 +1,24 @@
-﻿const yearEl = document.getElementById("year");
+﻿const GITHUB_USERNAME = "Lanor-Jephthah1";
+const CLICK_STORE_KEY = "jkl_portfolio_clicks_v1";
+const COUNTAPI_NAMESPACE = "lanor-jephthah1-portfolio";
+const COUNTAPI_TOTAL_KEY = "total_clicks";
+
+const yearEl = document.getElementById("year");
 if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+const progressEl = document.getElementById("scroll-progress");
+function updateScrollProgress() {
+  if (!progressEl) return;
+  const scrollTop = window.scrollY;
+  const scrollRange = document.documentElement.scrollHeight - window.innerHeight;
+  const ratio = scrollRange > 0 ? Math.min(scrollTop / scrollRange, 1) : 0;
+  progressEl.style.transform = `scaleX(${ratio})`;
+}
+window.addEventListener("scroll", updateScrollProgress, { passive: true });
+window.addEventListener("resize", updateScrollProgress);
+updateScrollProgress();
 
 const reveals = document.querySelectorAll(".reveal");
 const revealObserver = new IntersectionObserver(
@@ -55,7 +72,8 @@ const navObserver = new IntersectionObserver(
       if (!entry.isIntersecting) return;
       const id = entry.target.getAttribute("id");
       desktopLinks.forEach((link) => {
-        link.classList.toggle("is-active", link.getAttribute("href") === `#${id}`);
+        const href = link.getAttribute("href") || "";
+        link.classList.toggle("is-active", href === `#${id}`);
       });
     });
   },
@@ -153,6 +171,126 @@ if (menuToggle && mobileMenu) {
   });
 }
 
+function setBadgeText(id, value) {
+  const node = document.getElementById(id);
+  if (node) node.textContent = String(value);
+}
+
+function formatMonthYear(isoDate) {
+  if (!isoDate) return "Recent";
+  const date = new Date(isoDate);
+  if (Number.isNaN(date.getTime())) return "Recent";
+  return date.toLocaleDateString(undefined, { month: "short", year: "numeric" });
+}
+
+async function loadGitHubProof() {
+  try {
+    const [userResp, reposResp] = await Promise.all([
+      fetch(`https://api.github.com/users/${GITHUB_USERNAME}`),
+      fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?per_page=100&sort=updated`)
+    ]);
+
+    if (!userResp.ok || !reposResp.ok) return;
+
+    const user = await userResp.json();
+    const repos = await reposResp.json();
+    if (!Array.isArray(repos)) return;
+
+    const repoCount = Number(user.public_repos || repos.length || 0);
+    const stars = repos.reduce((sum, repo) => sum + Number(repo.stargazers_count || 0), 0);
+
+    const languageTally = {};
+    repos.forEach((repo) => {
+      if (!repo.language) return;
+      languageTally[repo.language] = (languageTally[repo.language] || 0) + 1;
+    });
+
+    const topLanguage = Object.entries(languageTally)
+      .sort((a, b) => b[1] - a[1])
+      .map(([name]) => name)[0] || "Python";
+
+    const latest = repos
+      .map((repo) => repo.pushed_at)
+      .filter(Boolean)
+      .sort((a, b) => new Date(b).getTime() - new Date(a).getTime())[0];
+
+    setBadgeText("badge-repos", repoCount);
+    setBadgeText("badge-stars", stars);
+    setBadgeText("badge-language", topLanguage);
+    setBadgeText("badge-updated", formatMonthYear(latest));
+  } catch (_error) {
+    // Keep fallback values if network call fails.
+  }
+}
+
+function loadClickStore() {
+  try {
+    const raw = localStorage.getItem(CLICK_STORE_KEY);
+    if (!raw) return { total: 0 };
+    const parsed = JSON.parse(raw);
+    return parsed && typeof parsed === "object" ? parsed : { total: 0 };
+  } catch (_error) {
+    return { total: 0 };
+  }
+}
+
+function saveClickStore(store) {
+  try {
+    localStorage.setItem(CLICK_STORE_KEY, JSON.stringify(store));
+  } catch (_error) {
+    // Ignore storage failures.
+  }
+}
+
+function bumpRemoteTotal() {
+  fetch(`https://api.countapi.xyz/hit/${COUNTAPI_NAMESPACE}/${COUNTAPI_TOTAL_KEY}`, {
+    method: "GET",
+    mode: "cors",
+    keepalive: true,
+    cache: "no-store"
+  }).catch(() => undefined);
+}
+
+function incrementTrackedClicks(trackName) {
+  const store = loadClickStore();
+  store.total = Number(store.total || 0) + 1;
+  store[trackName] = Number(store[trackName] || 0) + 1;
+  saveClickStore(store);
+  setBadgeText("badge-clicks", store.total);
+  bumpRemoteTotal();
+}
+
+function hydrateTrackedClicks() {
+  const store = loadClickStore();
+  setBadgeText("badge-clicks", Number(store.total || 0));
+
+  fetch(`https://api.countapi.xyz/get/${COUNTAPI_NAMESPACE}/${COUNTAPI_TOTAL_KEY}`, {
+    method: "GET",
+    mode: "cors",
+    cache: "no-store"
+  })
+    .then((resp) => (resp.ok ? resp.json() : null))
+    .then((payload) => {
+      if (!payload || typeof payload.value !== "number") return;
+      const local = Number(store.total || 0);
+      const merged = Math.max(local, payload.value);
+      if (merged !== local) {
+        store.total = merged;
+        saveClickStore(store);
+      }
+      setBadgeText("badge-clicks", merged);
+    })
+    .catch(() => undefined);
+}
+
+const trackables = document.querySelectorAll("[data-track]");
+trackables.forEach((node) => {
+  node.addEventListener("click", () => {
+    const trackName = node.getAttribute("data-track") || "unknown";
+    incrementTrackedClicks(trackName);
+  });
+});
+
 function initConstellation() {
   const canvas = document.getElementById("constellation");
   if (!canvas) return;
@@ -199,7 +337,7 @@ function initConstellation() {
 
       ctx.beginPath();
       ctx.arc(p.x, p.y, 1.4, 0, Math.PI * 2);
-      ctx.fillStyle = "rgba(160, 196, 255, 0.48)";
+      ctx.fillStyle = "rgba(243, 178, 74, 0.45)";
       ctx.fill();
 
       for (let j = i + 1; j < points.length; j += 1) {
@@ -213,7 +351,7 @@ function initConstellation() {
         ctx.beginPath();
         ctx.moveTo(p.x, p.y);
         ctx.lineTo(q.x, q.y);
-        ctx.strokeStyle = `rgba(116, 174, 255, ${alpha})`;
+        ctx.strokeStyle = `rgba(243, 178, 74, ${alpha})`;
         ctx.lineWidth = 1;
         ctx.stroke();
       }
@@ -234,6 +372,9 @@ function initConstellation() {
     rafId = requestAnimationFrame(draw);
   });
 }
+
+loadGitHubProof();
+hydrateTrackedClicks();
 
 if (!prefersReducedMotion) {
   initConstellation();
