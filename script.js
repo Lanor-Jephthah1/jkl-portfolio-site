@@ -1,6 +1,8 @@
 ﻿const yearEl = document.getElementById("year");
 if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
 const reveals = document.querySelectorAll(".reveal");
 const revealObserver = new IntersectionObserver(
   (entries) => {
@@ -140,6 +142,15 @@ if (menuToggle && mobileMenu) {
       mobileMenu.setAttribute("aria-hidden", "true");
     });
   });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 980) {
+      mobileMenu.classList.remove("open");
+      menuToggle.classList.remove("is-open");
+      menuToggle.setAttribute("aria-expanded", "false");
+      mobileMenu.setAttribute("aria-hidden", "true");
+    }
+  });
 }
 
 function initConstellation() {
@@ -151,6 +162,7 @@ function initConstellation() {
 
   let width = 0;
   let height = 0;
+  let rafId = 0;
   const points = [];
 
   function resize() {
@@ -207,14 +219,22 @@ function initConstellation() {
       }
     }
 
-    requestAnimationFrame(draw);
+    rafId = requestAnimationFrame(draw);
   }
 
   resize();
   draw();
   window.addEventListener("resize", resize);
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      cancelAnimationFrame(rafId);
+      return;
+    }
+    rafId = requestAnimationFrame(draw);
+  });
 }
 
-if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+if (!prefersReducedMotion) {
   initConstellation();
 }
