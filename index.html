@@ -1,193 +1,207 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lanor Jephthah Kwame | AI & NLP Engineer</title>
+    <title>Lanor Jephthah Kwame | Software Engineering Portfolio</title>
     <meta
       name="description"
-      content="Portfolio of Lanor Jephthah Kwame, focused on practical NLP and machine learning systems."
+      content="Professional portfolio of Lanor Jephthah Kwame featuring selected engineering projects, technical strengths, and impact-driven product work."
     />
     <link rel="icon" type="image/png" href="assets/profile.png" />
     <link rel="apple-touch-icon" href="assets/profile.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="grain" aria-hidden="true"></div>
+    <canvas id="constellation" aria-hidden="true"></canvas>
+    <div class="gradient-orb orb-a" aria-hidden="true"></div>
+    <div class="gradient-orb orb-b" aria-hidden="true"></div>
+    <div class="scanline" aria-hidden="true"></div>
+
     <header class="topbar">
-      <div class="wrap nav">
+      <div class="wrap nav-shell">
         <a class="brand" href="#home">
-          <img src="assets/profile.png" alt="Jephthah Kwame Lanor" class="brand-avatar" />
+          <img src="assets/profile.png" alt="Lanor Jephthah Kwame" class="brand-avatar" />
           <span class="brand-copy">
-            <strong>JKL</strong>
-            <small>AI & NLP Portfolio</small>
+            <strong>Jephthah Lanor</strong>
+            <small>Software Engineer</small>
           </span>
         </a>
-        <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+
+        <button
+          class="menu-toggle"
+          id="menu-toggle"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
           <span></span><span></span><span></span>
         </button>
-        <nav class="desktop-nav">
+
+        <nav class="desktop-nav" aria-label="Primary">
           <a href="#about">About</a>
-          <a href="#skills">Skills</a>
+          <a href="#strengths">Strengths</a>
           <a href="#projects">Projects</a>
           <a href="#contact">Contact</a>
         </nav>
       </div>
+
       <nav class="mobile-menu" id="mobile-menu" aria-hidden="true">
         <a href="#about">About</a>
-        <a href="#skills">Skills</a>
+        <a href="#strengths">Strengths</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
       </nav>
     </header>
 
     <main id="home">
-      <section class="hero wrap reveal">
-        <div class="bubble-field" aria-hidden="true">
-          <span class="bubble b1"></span>
-          <span class="bubble b2"></span>
-          <span class="bubble b3"></span>
-          <span class="bubble b4"></span>
-          <span class="bubble b5"></span>
-        </div>
+      <section class="hero wrap reveal" id="hero">
+        <p class="hero-kicker">National Service Candidate | Amalitech Track</p>
         <h1>
-          Jephthah Kwame Lanor
-          <span>Building useful AI products from messy, real-world data.</span>
+          Building dependable digital products
+          <span id="typed-role">from data to deployment.</span>
         </h1>
-        <p class="lead">
-          I design NLP pipelines, prototype model-driven solutions, and turn data-heavy ideas into production-ready systems.
+        <p class="hero-copy">
+          I turn practical problems into working systems across backend engineering, automation, intelligent assistants, and data-enabled web products. I prioritize reliability, clear user experience, and measurable outcomes.
         </p>
+
         <div class="cta-row">
-          <a class="btn primary" href="#projects">View Projects</a>
-          <a class="btn secondary" href="#contact">Let&apos;s Work Together</a>
+          <a class="btn primary magnetic" href="#projects">Explore Work</a>
+          <a class="btn secondary" href="https://github.com/Lanor-Jephthah1" target="_blank" rel="noreferrer">GitHub Profile</a>
         </div>
-        <div class="stats">
-          <article>
+
+        <div class="stat-grid">
+          <article class="stat-card">
+            <h3 data-count="16">0</h3>
+            <p>Public Repositories</p>
+          </article>
+          <article class="stat-card">
             <h3 data-count="6">0</h3>
-            <p>Core Technical Areas</p>
+            <p>Featured Impact Projects</p>
           </article>
-          <article>
-            <h3 data-count="12">0</h3>
-            <p>Prototype Workflows Built</p>
+          <article class="stat-card">
+            <h3 data-count="4">0</h3>
+            <p>Core Delivery Domains</p>
           </article>
-          <article>
-            <h3 data-count="100">0</h3>
-            <p>Experiment Iterations</p>
+          <article class="stat-card">
+            <h3 data-count="2026">0</h3>
+            <p>Current Active Year</p>
           </article>
         </div>
       </section>
 
       <section id="about" class="section wrap reveal">
         <div class="section-head">
-          <h2>About</h2>
+          <h2>Professional Profile</h2>
+          <p>Computer Engineering student focused on software systems that solve real operational needs.</p>
         </div>
-        <div class="cards two">
-          <article class="card">
-            <h3>Who I Am</h3>
+
+        <div class="grid two">
+          <article class="panel spotlight-card">
+            <h3>Value I Bring</h3>
             <p>
-              Computer Engineering student with strong interest in Natural Language Processing and applied Machine Learning.
-              I enjoy taking ambiguous business problems and translating them into measurable AI solutions.
-            </p>
-            <p class="course-note">
-              Currently pursuing the <strong>IBM Generative AI Engineering Course</strong> to deepen my skills in modern GenAI systems.
+              I bridge product thinking with implementation speed. I can prototype quickly, but I also structure projects for maintainability: modular code, observability, and practical deployment workflows.
             </p>
           </article>
-          <article class="card">
-            <h3>How I Work</h3>
+          <article class="panel spotlight-card">
+            <h3>Current Focus</h3>
             <p>
-              I work fast, test assumptions early, and prioritize systems that are maintainable after launch. My focus is always:
-              practical impact, not just model scores.
+              Delivering production-minded Python and JavaScript solutions, strengthening cloud and API engineering, and contributing to teams where code quality, ownership, and user impact matter.
             </p>
           </article>
         </div>
       </section>
 
-      <section id="skills" class="section wrap reveal">
+      <section id="strengths" class="section wrap reveal">
         <div class="section-head">
-          <h2>Skills</h2>
+          <h2>Technical Strengths</h2>
         </div>
-        <div class="skills-grid">
-          <article class="tile"><h3>Languages</h3><p>Python, SQL</p></article>
-          <article class="tile"><h3>ML Stack</h3><p>Pandas, NumPy, scikit-learn, spaCy</p></article>
-          <article class="tile"><h3>NLP</h3><p>Text preprocessing, classification, embeddings</p></article>
-          <article class="tile"><h3>Visualization</h3><p>Matplotlib, Seaborn, Plotly</p></article>
-          <article class="tile"><h3>Cloud</h3><p>AWS, GCP, Azure (ongoing deepening)</p></article>
-          <article class="tile"><h3>Engineering</h3><p>Automation, APIs, workflow design</p></article>
+
+        <div class="strength-grid">
+          <article class="strength-item spotlight-card">
+            <h3>Backend Engineering</h3>
+            <p>Flask services, REST APIs, auth/session flows, application architecture, and operational tooling.</p>
+          </article>
+          <article class="strength-item spotlight-card">
+            <h3>Automation & Data Workflows</h3>
+            <p>Python automation, scraping pipelines, checkpoint recovery, data validation, and reporting outputs.</p>
+          </article>
+          <article class="strength-item spotlight-card">
+            <h3>Intelligent App Features</h3>
+            <p>Conversational interfaces, sentiment-aware response logic, prompt orchestration, and model integration.</p>
+          </article>
+          <article class="strength-item spotlight-card">
+            <h3>Frontend Delivery</h3>
+            <p>Responsive interfaces, accessible interactions, animation systems, and polished user journeys.</p>
+          </article>
         </div>
       </section>
 
       <section id="projects" class="section wrap reveal">
         <div class="section-head">
-          <h2>Featured Projects</h2>
+          <h2>Selected GitHub Projects</h2>
+          <p>Curated from your most relevant and recent repositories.</p>
         </div>
-        <div class="cards three">
-          <article class="card project">
-            <h3>Echo AI Chatbot</h3>
-            <p class="status in-progress">In Progress</p>
-            <p>
-              Mental-health focused chatbot built with Flask, DeepSeek API integration, and NLP-driven emotion detection.
-            </p>
-            <div class="meta"><span>Python</span><span>NLP</span><span>Flask</span></div>
-            <a class="project-link" href="https://github.com/Lanor-Jephthah1/echo-ai-chatbot" target="_blank" rel="noreferrer">View on GitHub</a>
+
+        <div class="project-grid">
+          <article class="project-card spotlight-card">
+            <h3>Echo AI Companion Super</h3>
+            <p class="project-meta">Python • Flask • MongoDB • Vercel</p>
+            <p>Production-oriented wellness assistant with streaming responses, adaptive sentiment behavior, analytics, and persistent chat history.</p>
+            <a class="project-link" href="https://github.com/Lanor-Jephthah1/Echo-AI-Companion-Super" target="_blank" rel="noreferrer">View Repository</a>
           </article>
-          <article class="card project">
+
+          <article class="project-card spotlight-card">
+            <h3>PetroCare Monitor</h3>
+            <p class="project-meta">Python • Flask • Risk Scoring</p>
+            <p>Infrastructure monitoring platform for petroleum operations with telemetry-driven alerts, incident workflows, and maintenance tracking.</p>
+            <a class="project-link" href="https://github.com/Lanor-Jephthah1/petrocare-monitor" target="_blank" rel="noreferrer">View Repository</a>
+          </article>
+
+          <article class="project-card spotlight-card">
             <h3>Smart File Organizer</h3>
-            <p>
-              Automation toolkit for sorting files, detecting duplicates by hash, and running desktop workflows.
-            </p>
-            <div class="meta"><span>Python</span><span>Automation</span><span>Desktop</span></div>
-            <a class="project-link" href="https://github.com/Lanor-Jephthah1/smart-file-organizer" target="_blank" rel="noreferrer">View on GitHub</a>
+            <p class="project-meta">Python • Automation • Desktop Utility</p>
+            <p>Windows automation assistant for organizing file systems, running routine commands, and keeping structured execution logs.</p>
+            <a class="project-link" href="https://github.com/Lanor-Jephthah1/smart-file-organizer" target="_blank" rel="noreferrer">View Repository</a>
           </article>
-          <article class="card project">
-            <h3>NLP Techniques</h3>
-            <p>
-              Practical NLP collection covering preprocessing, POS tagging, NER, and fake-news classifier workflows.
-            </p>
-            <div class="meta"><span>Notebook</span><span>NLP</span><span>ML</span></div>
-            <a class="project-link" href="https://github.com/Lanor-Jephthah1/NLP-Techniques" target="_blank" rel="noreferrer">View on GitHub</a>
-          </article>
-          <article class="card project">
+
+          <article class="project-card spotlight-card">
             <h3>NHIS Payments Scraper</h3>
-            <p>
-              Fault-tolerant Selenium and Pandas scraper for NHIS Ghana payment records with checkpoint-based resume support.
-            </p>
-            <div class="meta"><span>Python</span><span>Selenium</span><span>Data</span></div>
-            <a class="project-link" href="https://github.com/Lanor-Jephthah1/nhis-payments-scraper" target="_blank" rel="noreferrer">View on GitHub</a>
+            <p class="project-meta">Python • Selenium • Pandas</p>
+            <p>Fault-tolerant, resumable scraping pipeline for NHIS payment records with pagination handling and clean CSV export workflows.</p>
+            <a class="project-link" href="https://github.com/Lanor-Jephthah1/nhis-payments-scraper" target="_blank" rel="noreferrer">View Repository</a>
           </article>
-          <article class="card project">
+
+          <article class="project-card spotlight-card">
+            <h3>UENR Student Management System</h3>
+            <p class="project-meta">HTML • PostgreSQL • CRUD Flows</p>
+            <p>University management system project implementing structured student records and core data-management operations.</p>
+            <a class="project-link" href="https://github.com/Lanor-Jephthah1/uenr-students-management-system-with-postgresql-as-database-" target="_blank" rel="noreferrer">View Repository</a>
+          </article>
+
+          <article class="project-card spotlight-card">
             <h3>Girlhub</h3>
-            <p class="status in-progress">In Progress</p>
-            <p>
-              E-commerce platform concept for university-focused users with product browsing and transaction flow design.
-            </p>
-            <div class="meta"><span>JavaScript</span><span>Web</span><span>Commerce</span></div>
-            <a class="project-link" href="https://github.com/Lanor-Jephthah1/Girlhub" target="_blank" rel="noreferrer">View on GitHub</a>
-          </article>
-          <article class="card project">
-            <h3>University Summer Programs Scraper DB</h3>
-            <p>
-              Data collection and storage workflow for university summer program information using Python-based scraping.
-            </p>
-            <div class="meta"><span>Python</span><span>Scraping</span><span>Database</span></div>
-            <a class="project-link" href="https://github.com/Lanor-Jephthah1/University-Summer-Programs-Scraper-Database" target="_blank" rel="noreferrer">View on GitHub</a>
+            <p class="project-meta">JavaScript • E-commerce Product</p>
+            <p>University-focused e-commerce platform concept showcasing frontend product thinking and transaction flow design.</p>
+            <a class="project-link" href="https://github.com/Lanor-Jephthah1/Girlhub" target="_blank" rel="noreferrer">View Repository</a>
           </article>
         </div>
       </section>
 
       <section id="contact" class="section wrap reveal">
-        <div class="contact-panel">
-          <h2>Let&apos;s Build Something Practical</h2>
+        <div class="contact-panel spotlight-card">
+          <h2>Ready to Contribute at Scale</h2>
           <p>
-            Open to internships, collaborations, and project opportunities in AI, NLP, and ML engineering.
+            I am actively seeking a National Service role where I can contribute as a dependable software engineer, learn quickly within a high-standard team, and ship work that users actually benefit from.
           </p>
           <div class="cta-row">
-            <a class="btn primary" href="mailto:mclanorjeff@gmail.com">Email Me</a>
+            <a class="btn primary magnetic" href="mailto:mclanorjeff@gmail.com">Email Me</a>
             <a class="btn secondary" href="https://www.linkedin.com/in/jephthah-kwame-lanor-6b9017262/" target="_blank" rel="noreferrer">LinkedIn</a>
           </div>
         </div>
@@ -195,7 +209,7 @@
     </main>
 
     <footer class="wrap footer">
-      <p>&copy; <span id="year"></span> Lanor Jephthah Kwame. Built for impact.</p>
+      <p>&copy; <span id="year"></span> Lanor Jephthah Kwame. Built with intent.</p>
     </footer>
 
     <script src="script.js"></script>
