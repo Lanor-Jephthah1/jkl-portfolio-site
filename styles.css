@@ -259,20 +259,6 @@ h1 span {
   background: rgba(10, 21, 38, 0.78);
 }
 
-.stack-strip {
-  display: grid;
-  gap: 0.45rem;
-}
-
-.stack-title {
-  margin: 0;
-  color: #aecdff;
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  font-weight: 800;
-}
-
 .ticker-track {
   width: max-content;
   display: flex;
@@ -285,12 +271,11 @@ h1 span {
 .ticker-track span {
   display: inline-flex;
   border-radius: 999px;
-  padding: 0.28rem 0.68rem;
+  padding: 0.25rem 0.62rem;
   border: 1px solid rgba(172, 203, 241, 0.22);
   background: rgba(18, 36, 64, 0.8);
   color: #c8dcff;
-  font-size: 0.74rem;
-  letter-spacing: 0.02em;
+  font-size: 0.77rem;
   font-weight: 700;
 }
 
